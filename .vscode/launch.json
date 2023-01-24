@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootJournalAppApplication<spring-boot-journal-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.springboot.demo.SpringBootJournalAppApplication",
+            "projectName": "spring-boot-journal-app",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "internalConsole"
+        }
+    ]
+}
