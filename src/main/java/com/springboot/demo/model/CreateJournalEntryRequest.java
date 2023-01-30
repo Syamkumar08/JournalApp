@@ -15,42 +15,42 @@ import lombok.ToString;
 @NoArgsConstructor
 public class CreateJournalEntryRequest {
 
-	private String taskName;
-	private String taskDescription;
-	private LocalDate taskDate;
+    private String taskName;
+    private String taskDescription;
+    private LocalDate taskDate;
 
-	public LocalDate getTaskDate() {
-		return this.taskDate;
-	}
+    public LocalDate getTaskDate() {
+        return this.taskDate;
+    }
 
-	public void setTaskDate(LocalDate taskDate) {
-		this.taskDate = taskDate;
-	}
+    public void setTaskDate(LocalDate taskDate) {
+        this.taskDate = taskDate;
+    }
 
-	private String createdBy;
+    private String createdBy;
 
-	public String getTaskName() {
-		return this.taskName;
-	}
+    public String getTaskName() {
+        return this.taskName;
+    }
 
-	public void setTaskName(String taskName) {
-		this.taskName = taskName;
-	}
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
 
-	public String getTaskDescription() {
-		return this.taskDescription;
-	}
+    public String getTaskDescription() {
+        return this.taskDescription;
+    }
 
-	public void setTaskDescription(String taskDescription) {
-		this.taskDescription = taskDescription;
-	}
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
+    }
 
-	
-	public String getCreatedBy() {
-		return this.createdBy;
-	}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
 }

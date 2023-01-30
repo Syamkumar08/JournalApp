@@ -5,22 +5,23 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.springboot.demo.dao.JournalEntryRepository;
+import com.springboot.demo.dao.JournalEntryRepo;
 import com.springboot.demo.model.CreateJournalEntryRequest;
-import com.springboot.demo.model.JournalEntry;
+import com.springboot.demo.model.GetMonthEntryResponse;
 import com.springboot.demo.model.JournalEntryResponse;
+import com.springboot.demo.model.Tasks;
 
 @Component
 public class JournalEntryServiceImpl implements JournalEntryService{
 
     @Autowired
-	JournalEntryRepository repo;
+    JournalEntryRepo repo;
 
     @Override
     public JournalEntryResponse addJournalEntry(final CreateJournalEntryRequest createJournalEntryRequest) {
-        JournalEntry entry = new JournalEntry();
+        Tasks entry = new Tasks();
         LocalDateTime now = LocalDateTime.now();
-        JournalEntry response = new JournalEntry();
+        Tasks response = new Tasks();
         JournalEntryResponse journalEntryResponse = new JournalEntryResponse();
         entry.setCreatedBy(createJournalEntryRequest.getCreatedBy());
         entry.setTaskDate(createJournalEntryRequest.getTaskDate());
@@ -40,5 +41,21 @@ public class JournalEntryServiceImpl implements JournalEntryService{
         journalEntryResponse.setData(response);
         return journalEntryResponse;
     }
-    
-}
+
+    @Override
+    public GetMonthEntryResponse getAllCurrentEntriesWithName(final String taskName) {
+        GetMonthEntryResponse getMonthEntryResponse = new GetMonthEntryResponse();
+        try {
+            getMonthEntryResponse.getMonthData().addAll(repo.getAllCurrentEntriesWithName(taskName));
+            getMonthEntryResponse.setSuccess(true);
+        } catch (final Exception e) {
+            getMonthEntryResponse.setSuccess(false);
+            getMonthEntryResponse.setErrorMessage("Error occured in "+e.getMessage());
+            return getMonthEntryResponse;
+        }
+
+        return getMonthEntryResponse;
+    }
+    }
+
+

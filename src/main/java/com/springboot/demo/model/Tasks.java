@@ -1,18 +1,12 @@
 package com.springboot.demo.model;
 
-
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 @Entity
 @Table(name="tasks")
-public class JournalEntry {
+public class Tasks {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,15 +14,6 @@ public class JournalEntry {
 	private String taskName;
 	private String taskDescription;
 	private LocalDate taskDate;
-
-	public LocalDate getTaskDate() {
-		return this.taskDate;
-	}
-
-	public void setTaskDate(LocalDate taskDate) {
-		this.taskDate = taskDate;
-	}
-
 	private String createdBy;
 	private String updatedBy;
 	private LocalDateTime createdTs;
@@ -83,7 +68,13 @@ public class JournalEntry {
 		this.taskDescription = taskDescription;
 	}
 
-	
+	public LocalDate getTaskDate() {
+		return taskDate;
+	}
+
+	public void setTaskDate(LocalDate taskDate) {
+		this.taskDate = taskDate;
+	}
 
 	public String getCreatedBy() {
 		return createdBy;

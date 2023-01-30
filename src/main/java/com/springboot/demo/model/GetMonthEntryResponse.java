@@ -1,12 +1,23 @@
 package com.springboot.demo.model;
 
-public class JournalEntryResponse {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GetMonthEntryResponse {
 
     private boolean success;
 
     private String errorMessage;
 
-    private Tasks data = new Tasks();
+    private List<Tasks> monthdata = new ArrayList<Tasks>();
+
+    public List<Tasks> getMonthData() {
+        return monthdata;
+    }
+
+    public void setMonthData(List<Tasks> monthdata) {
+        this.monthdata = monthdata;
+    }
 
     public boolean isSuccess() {
         return this.success;
@@ -24,13 +35,4 @@ public class JournalEntryResponse {
         this.errorMessage = errorMessage;
     }
 
-    public Tasks getData() {
-        return this.data;
-    }
-
-    public void setData(Tasks data) {
-        this.data = data;
-    }
-
 }
-
