@@ -25,6 +25,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
+@RequestMapping("/api")
 @Tag(name = "Company Query", description = "This is a controller for query operations on Company Resource")
 public class JournalEntryController {
 	private Logger log = LoggerFactory.getLogger(JournalEntryController.class);
@@ -33,7 +34,9 @@ public class JournalEntryController {
 
 	@Autowired
 	JournalEntryService journalEntryService;
-
+@Autowired
+	private Environment env;
+	
 	@ResponseBody
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "OK"),
 			@ApiResponse(responseCode = "500", description = "Bad Request"),
